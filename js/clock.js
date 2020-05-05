@@ -14,20 +14,21 @@ for ( let h=0; h<24; h++){
 
     //HTML += `<div class="time">${hours}:00:00</div>`;
 
-    let am = 'AM';
-    let AmPm = h%12;
+    let amPm = 12;
+    let hoursAmPm = h%amPm;
+    let txt = 'AM';
 
-    if (AmPm === 0 )
+    if (hoursAmPm === 0 )
     {
-        AmPm = '12';      
+        hoursAmPm = amPm;      
     }
 
-    if (hours >= 12 )
+    if (h >= amPm )
     {
-        am = 'PM';      
+        txt = 'PM';      
     }
     
-    HTML += `<div class="time">${hours}:00 = ${AmPm}:00 ${am}</div>`;
+    HTML += `<div class="time">${hours}:00 = ${hoursAmPm}:00 ${txt}</div>`;
 
     for ( let m=0; m<60; m++){
         let minutes = m;
